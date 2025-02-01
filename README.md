@@ -2,6 +2,12 @@
 
 Host a static site from your own computer with no hassle
 
+# Development
+
+## Docker
+Navigate to the `src/docker` directory. From here, run `docker-compose up`. This will build the static Jekyll app, and mount the Nginx server to the `_site/` directory containing the bundled static files. 
+
+
 # React + TypeScript + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
