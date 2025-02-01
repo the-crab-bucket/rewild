@@ -5,13 +5,6 @@ import "./App.css";
 import { RunKillButtons } from "./components/RunKillButtons";
 
 function App() {
-  const launchServer = useCallback(async () => {
-    backend.runDevServer();
-  }, []);
-  const killServer = useCallback(async () => {
-    backend.killDevServer();
-  }, []);
-
   return (
     <>
       <div>
