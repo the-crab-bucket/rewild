@@ -11,6 +11,6 @@ COPY jekyll/Gemfile* ./
 
 RUN bundle install
 
-EXPOSE 4000
+# EXPOSE 4000
 
-CMD ["jekyll", "serve", "--watch", "--force_polling", "--host", "0.0.0.0"]
+# CMD ["jekyll", "serve", "--watch", "--force_polling", "--host", "0.0.0.0"]
