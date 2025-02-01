@@ -4,8 +4,8 @@ import viteLogo from "/vite.svg";
 import "./App.css";
 
 function App() {
-  const setWindowTitle = useCallback(async () => {
-    await backend.setTitle("Test");
+  const launchServer = useCallback(async () => {
+    backend.runServer();
   }, []);
 
   return (
@@ -20,7 +20,7 @@ function App() {
       </div>
       <h1>Vite + React</h1>
       <div className="card">
-        <button onClick={setWindowTitle}>Set window title</button>
+        <button onClick={launchServer}>Launch server</button>
         <p>
           Edit <code>src/App.tsx</code> and save to test hot reload
         </p>
