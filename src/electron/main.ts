@@ -3,6 +3,7 @@ import { join } from "path";
 
 // 1. this import won't work yet, but we will fix that next
 import "./api";
+import { setMainWindow } from "./api";
 
 const isDev = process.env.DEV != undefined;
 const isPreview = process.env.PREVIEW != undefined;
@@ -16,7 +17,6 @@ const createWindow = () => {
     },
   });
 
-
   if (isDev) {
     mainWindow.loadURL("http://localhost:5173");
     mainWindow.webContents.openDevTools();
@@ -26,6 +26,8 @@ const createWindow = () => {
   } else {
     mainWindow.loadFile("dist/index.html");
   }
+
+  setMainWindow(mainWindow);
 };
 
 app.whenReady().then(() => {
