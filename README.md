@@ -1,6 +1,8 @@
 # rewild
 
-Host a static site from your own computer with no hassle
+[Docs](https://docs.google.com/document/d/1D5ddyvPQDwAFBVkzT5l-4JANpnm1M-E--sHL5aKveW4/edit?tab=t.0)
+
+Host a static site from your own computer with no hassle.
 
 # Development
 
