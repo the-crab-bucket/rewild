@@ -5,6 +5,7 @@ export const backend = {
     await ipcRenderer.invoke("node-version", msg),
   setTitle: (title: string) => ipcRenderer.invoke("set-title", title),
   runServer: () => ipcRenderer.invoke("run-server"),
+  killServer: () => ipcRenderer.invoke("kill-server"),
 };
 
 contextBridge.exposeInMainWorld("backend", backend);

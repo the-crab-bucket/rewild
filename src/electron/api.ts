@@ -26,12 +26,25 @@ ipcMain.handle(
   }
 );
 
-ipcMain.handle("run-server", (event: IpcMainInvokeEvent) => {
-  exec(`docker compose -f src/docker/docker-compose.yml up -d`, (error) => {
+ipcMain.handle("run-server", (_event: IpcMainInvokeEvent) => {
+  exec(
+    `docker compose -f src/docker/docker-compose.yml up --build -d`,
+    (error) => {
+      if (error) {
+        console.error("Error starting Docker Compose:", error.message);
+      } else {
+        console.log("Jekyll started!");
+      }
+    }
+  );
+});
+
+ipcMain.handle("kill-server", (_event: IpcMainInvokeEvent) => {
+  exec(`docker compose -f src/docker/docker-compose.yml down`, (error) => {
     if (error) {
-      console.error("Error starting Docker Compose:", error.message);
+      console.error("Error stopping docker:", error.message);
     } else {
-      console.log("Jekyll container started!");
+      console.log("Jekyll stopped!");
     }
   });
 });
