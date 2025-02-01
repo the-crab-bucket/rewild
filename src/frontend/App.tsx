@@ -2,13 +2,14 @@ import { useCallback } from "react";
 import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
 import "./App.css";
+import { RunKillButtons } from "./components/RunKillButtons";
 
 function App() {
   const launchServer = useCallback(async () => {
-    backend.runServer();
+    backend.runDevServer();
   }, []);
   const killServer = useCallback(async () => {
-    backend.killServer();
+    backend.killDevServer();
   }, []);
 
   return (
@@ -22,10 +23,8 @@ function App() {
         </a>
       </div>
       <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={launchServer}>Launch server</button>
-        <button onClick={killServer}>Kill server</button>
-      </div>
+      <RunKillButtons environment="dev" />
+      <RunKillButtons environment="prod" />
       <p className="read-the-docs">
         Click on the Vite and React logos to learn more
       </p>

@@ -1,6 +1,6 @@
 version: "3.8"
 services:
-  jekyll:
+  jekyll-prod:
     build:
       context: .
     volumes:
@@ -8,12 +8,25 @@ services:
     ports:
       - "4000:4000"
     command: jekyll build
+    profiles:
+      - production
   nginx:
     image: nginx:latest
     depends_on:
-      - jekyll
-    ports: 
+      - jekyll-prod
+    ports:
       - 8089:80
     volumes:
       - ./jekyll/_site/:/usr/share/nginx/html
-
+    profiles:
+      - production
+  jekyll-dev:
+    build:
+      context: .
+    volumes:
+      - ./jekyll:/srv/jekyll
+    ports:
+      - "4000:4000"
+    command: jekyll serve --watch --force_polling --host 0.0.0.0
+    profiles:
+      - dev
