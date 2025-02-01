@@ -18,7 +18,7 @@ ipcMain.handle(
 
 ipcMain.handle(
   "set-title",
-  (event: IpcMainInvokeEvent, title: string): void => {
+  (_event: IpcMainInvokeEvent, title: string): void => {
     if (window) {
       window.setTitle(title);
     }
