@@ -1,12 +1,12 @@
-import '../../App.css';
-import '../../flex.css';
+import "../../App.css";
+import "../../flex.css";
 
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 
-import GuideButton from '../intro/GuideButton';
-import { RunKillButtons } from '../RunKillButtons';
+import GuideButton from "../GuideButton";
+import { RunKillButtons } from "../RunKillButtons";
 
-function Home() {
+function HomeContainer() {
   return (
     <>
       <h1>Rewild</h1>
@@ -25,4 +25,4 @@ function Home() {
   );
 }
 
-export default Home;
+export default HomeContainer;
