@@ -7,50 +7,44 @@ export const RunKillButtons = (props: { environment: Env }) => {
   const launchServer = useCallback(async () => {
     switch (environment) {
       case Env.Dev:
-        {
-          backend.runDevServer();
-        }
+        backend.runDevServer();
         break;
       case Env.Prod:
-        {
-          backend.runProdServer();
-        }
+        backend.runProdServer();
         break;
     }
   }, [environment]);
   const killServer = useCallback(async () => {
     switch (environment) {
       case Env.Dev:
-        {
-          backend.killDevServer();
-        }
+        backend.killDevServer();
         break;
       case Env.Prod:
-        {
-          backend.killProdServer();
-        }
+        backend.killProdServer();
         break;
     }
   }, [environment]);
 
+  const getEnvString = (env: Env) => {
+    switch (env) {
+      case Env.Dev:
+        return " local ";
+      case Env.Prod:
+        return " online ";
+      default:
+        return "unknown ";
+    }
+  };
   return (
     <div className="card">
       <button onClick={launchServer}>
         Launch
-        {environment === Env.Dev
-          ? " local "
-          : environment === Env.Prod
-          ? " online "
-          : "unknown "}
+        {getEnvString(environment)}
         server
       </button>
       <button onClick={killServer}>
         Kill
-        {environment === Env.Dev
-          ? " local "
-          : environment === Env.Prod
-          ? " online "
-          : "unknown "}
+        {getEnvString(environment)}
         server
       </button>
     </div>
