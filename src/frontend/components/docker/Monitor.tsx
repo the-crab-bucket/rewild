@@ -16,6 +16,7 @@ function getContainerHealthFromDockerPSOutput(
 export const Monitor = () => {
   let [nginxRunning, setNginxRunning] = useState(false);
   let [jekyllRunning, setJekyllRunning] = useState(false);
+  let [initialized, setInitialized] = useState(false);
 
   const onClickHeartbeat = async () => {
     let [nTmp, jTmp] = await heartbeat();
@@ -23,11 +24,30 @@ export const Monitor = () => {
     setJekyllRunning(jTmp);
   };
 
+  // Once
+  if (!initialized) {
+    onClickHeartbeat().catch();
+    setInitialized(true);
+  }
+
+  const status = () => {
+    if (!nginxRunning && !jekyllRunning) {
+      return "System down";
+    } else if (nginxRunning && jekyllRunning) {
+      return "Production";
+    } else if (nginxRunning && !jekyllRunning) {
+      return "Should not happen";
+    } else if (!nginxRunning && jekyllRunning) {
+      return "Local";
+    }
+  };
+
   return (
     <>
+      <p>Status: {status()}</p>
       <p>Nginx Running: {nginxRunning ? "yes" : "no"}</p>
       <p>Jekyll Running: {jekyllRunning ? "yes" : "no"}</p>
-      <button onClick={onClickHeartbeat}>Monitor</button>
+      <button onClick={onClickHeartbeat}>Heartbeat</button>
     </>
   );
 };
