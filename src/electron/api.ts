@@ -1,5 +1,5 @@
+import { exec, execSync } from "child_process";
 import { BrowserWindow, ipcMain, IpcMainInvokeEvent } from "electron";
-import { exec } from "child_process";
 
 let window: BrowserWindow | null;
 
@@ -77,3 +77,12 @@ ipcMain.handle("kill-prod-server", (_event: IpcMainInvokeEvent) => {
     }
   );
 });
+
+ipcMain.handle(
+  "heartbeat",
+  async (_event: IpcMainInvokeEvent): Promise<string> => {
+    console.log("Calling heartbeat");
+    let childProcess = execSync(`docker ps`);
+    return childProcess.toString();
+  }
+);
