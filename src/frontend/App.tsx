@@ -1,17 +1,27 @@
-import { HashRouter, Route, Routes } from 'react-router-dom';
+import { HashRouter, Route, Routes } from "react-router-dom";
 
-import About from './components/about/About';
-import Home from './components/home/home';
-import NavbarLayout from './components/navbar/NavbarLayout';
+import NavbarLayout from "./components/Navbar/NavbarLayout";
+import AboutContainer from "./components/About/AboutContainer";
+import HomeContainer from "./components/Home/HomeContainer";
+import DocsContainer from "./components/Docs/DocsContainer";
+import DevelopmentControlsContainer from "./components/DevelopmentControls/DevelopmentControlsContainer";
+import InternetControlsContainer from "./components/InternetControls/InternetControlsContainer";
+import SettingsContainer from "./components/Settings/SettingsContainer";
+import PagesControlsContainer from "./components/PagesControls/PagesControlsContainer";
 
 function App() {
   return (
     <>
       <HashRouter>
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<HomeContainer />} />
           <Route element={<NavbarLayout />}>
-            <Route path="/about" element={<About />} />
+            <Route path="/docs" element={<DocsContainer />} />
+            <Route path="/dev" element={<DevelopmentControlsContainer />} />
+            <Route path="/internet" element={<InternetControlsContainer />} />
+            <Route path="/pages" element={<PagesControlsContainer />} />
+            <Route path="/settings" element={<SettingsContainer />} />
+            <Route path="/about" element={<AboutContainer />} />
           </Route>
         </Routes>
       </HashRouter>

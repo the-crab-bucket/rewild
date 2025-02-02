@@ -1,7 +1,30 @@
 .navbar-container {
   position: absolute;
   left: 0px;
-  justify-content: center;
+  justify-content: flex-start;
   height: 100%;
-  border-right: 2px solid white;
+  border-right: 2px solid;
+}
+
+.navbar-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 30px;
+  width: 50px;
+  margin: 5px;
+  border-radius: 8px;
+  background-color: black;
+  border: 1px solid darkslategray;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+.end-button {
+  margin-top: auto;
+}
+@media (prefers-color-scheme: light) {
+  .navbar-button {
+    background-color: white;
+    border: 1px solid lightgray;
+  }
 }
