@@ -7,7 +7,7 @@ services:
       - ./jekyll:/srv/jekyll
     ports:
       - "4000:4000"
-    command: jekyll build
+    command: "jekyll build -w"
     profiles:
       - production
   nginx:
