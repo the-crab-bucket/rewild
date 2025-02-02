@@ -1,19 +1,35 @@
-import { useCallback } from 'react';
+import { useCallback } from "react";
 
-export const RunKillButtons = (props: { environment: string }) => {
+import { Env } from "../const";
+
+export const RunKillButtons = (props: { environment: Env }) => {
   const { environment } = props;
   const launchServer = useCallback(async () => {
-    if (environment === "dev") {
-      backend.runDevServer();
-    } else if (environment === "prod") {
-      backend.runProdServer();
+    switch (environment) {
+      case Env.Dev:
+        {
+          backend.runDevServer();
+        }
+        break;
+      case Env.Prod:
+        {
+          backend.runProdServer();
+        }
+        break;
     }
   }, [environment]);
   const killServer = useCallback(async () => {
-    if (environment === "dev") {
-      backend.killDevServer();
-    } else if (environment === "prod") {
-      backend.killProdServer();
+    switch (environment) {
+      case Env.Dev:
+        {
+          backend.killDevServer();
+        }
+        break;
+      case Env.Prod:
+        {
+          backend.killProdServer();
+        }
+        break;
     }
   }, [environment]);
 
@@ -21,18 +37,18 @@ export const RunKillButtons = (props: { environment: string }) => {
     <div className="card">
       <button onClick={launchServer}>
         Launch
-        {environment === "dev"
+        {environment === Env.Dev
           ? " local "
-          : environment === "prod"
+          : environment === Env.Prod
           ? " online "
           : "unknown "}
         server
       </button>
       <button onClick={killServer}>
         Kill
-        {environment === "dev"
+        {environment === Env.Dev
           ? " local "
-          : environment === "prod"
+          : environment === Env.Prod
           ? " online "
           : "unknown "}
         server
