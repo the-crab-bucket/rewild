@@ -6,8 +6,21 @@ Host a static site from your own computer with no hassle.
 
 # Development
 
+## App
+
+first, install NPM.
+
+then do `npm run dev`. 
+
 ## Docker
-Navigate to the `src/docker` directory. From here, run `docker-compose up`. This will build the static Jekyll app, and mount the Nginx server to the `_site/` directory containing the bundled static files. 
+
+First, install Docker Desktop at https://docs.docker.com/get-started/get-docker/.
+
+Navigate to the `src/docker` directory. From here, run one of the following commands:
+1.  `docker-compose --profile dev up`.  
+This will run the website locally and automatically reload any changes. you can access it from your browser at `localhost:4000`.
+1.   `docker-compose --profile production up` This will build the static Jekyll app, and mount the Nginx server to the `_site/` directory containing the bundled static files. 
+
 
 
 # React + TypeScript + Vite
