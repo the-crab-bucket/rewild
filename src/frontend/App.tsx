@@ -1,7 +1,8 @@
-import { Routes, Route, HashRouter } from "react-router-dom";
-import Home from "./components/home/home";
-import About from "./components/about/About";
-import NavbarLayout from "./components/navbar/NavbarLayout";
+import { HashRouter, Route, Routes } from 'react-router-dom';
+
+import About from './components/about/About';
+import Home from './components/home/home';
+import NavbarLayout from './components/navbar/NavbarLayout';
 
 function App() {
   return (

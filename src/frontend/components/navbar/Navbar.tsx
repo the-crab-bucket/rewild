@@ -1,5 +1,5 @@
-import "./navbar.css";
-import "../../flex.css";
+import './navbar.css';
+import '../../flex.css';
 
 const Navbar = () => {
   return (

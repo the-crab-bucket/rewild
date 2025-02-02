@@ -1,4 +1,4 @@
-import { useCallback } from "react";
+import { useCallback } from 'react';
 
 export const RunKillButtons = (props: { environment: string }) => {
   const { environment } = props;

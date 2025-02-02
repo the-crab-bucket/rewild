@@ -1,8 +1,10 @@
-import { Link } from "react-router-dom";
-import "../../App.css";
-import "../../flex.css";
-import { RunKillButtons } from "../RunKillButtons";
-import GuideButton from "../intro/GuideButton";
+import '../../App.css';
+import '../../flex.css';
+
+import { Link } from 'react-router-dom';
+
+import GuideButton from '../intro/GuideButton';
+import { RunKillButtons } from '../RunKillButtons';
 
 function Home() {
   return (
