@@ -1,26 +1,19 @@
-import { useCallback } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
-import "./App.css";
-import { RunKillButtons } from "./components/RunKillButtons";
+import { Routes, Route, HashRouter } from "react-router-dom";
+import Home from "./components/home/home";
+import About from "./components/about/About";
+import NavbarLayout from "./components/navbar/NavbarLayout";
 
 function App() {
   return (
     <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <RunKillButtons environment="dev" />
-      <RunKillButtons environment="prod" />
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <HashRouter>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route element={<NavbarLayout />}>
+            <Route path="/about" element={<About />} />
+          </Route>
+        </Routes>
+      </HashRouter>
     </>
   );
 }
