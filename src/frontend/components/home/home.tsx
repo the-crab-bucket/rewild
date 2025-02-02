@@ -1,16 +1,19 @@
-import '../../App.css';
-import '../../flex.css';
+import "../../App.css";
+import "../../flex.css";
 
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 
-import { Env } from '../../const';
-import GuideButton from '../intro/GuideButton';
-import { RunKillButtons } from '../RunKillButtons';
+import { Monitor } from "../docker/Monitor";
+import { Env } from "../../const";
+import GuideButton from "../intro/GuideButton";
+import { RunKillButtons } from "../RunKillButtons";
 
 function Home() {
   return (
     <>
       <h1>Rewild Server</h1>
+
+      <Monitor />
       <RunKillButtons environment={Env.Dev} />
       <RunKillButtons environment={Env.Prod} />
 
@@ -19,7 +22,6 @@ function Home() {
       </p>
       <Link to={"/about"}>About</Link>
       <div className="row">
-        <GuideButton />
         <GuideButton />
       </div>
     </>
