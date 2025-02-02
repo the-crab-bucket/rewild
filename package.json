@@ -11,9 +11,13 @@
   },
   "dependencies": {
     "@reacticons/ionicons": "^7.1.0",
+    "concurrently": "^9.1.2",
+    "cross-env": "^7.0.3",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "react-router-dom": "^7.1.5"
+    "react-router-dom": "^7.1.5",
+    "tsc": "^2.0.4",
+    "tsc-watch": "^6.2.1"
   },
   "devDependencies": {
     "@electron-forge/cli": "^7.6.1",
