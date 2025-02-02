@@ -5,10 +5,10 @@ import { Link } from "react-router-dom";
 
 import { Monitor } from "../docker/Monitor";
 import { Env } from "../../const";
-import GuideButton from "../intro/GuideButton";
+import GuideButton from "../GuideButton";
 import { RunKillButtons } from "../RunKillButtons";
 
-function Home() {
+function HomeContainer() {
   return (
     <>
       <h1>Rewild Server</h1>
@@ -28,4 +28,4 @@ function Home() {
   );
 }
 
-export default Home;
+export default HomeContainer;
