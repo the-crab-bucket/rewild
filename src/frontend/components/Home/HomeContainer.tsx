@@ -21,9 +21,6 @@ function HomeContainer() {
         Host your own website right from your laptop.
       </p>
       <Link to={"/about"}>About</Link>
-      <div className="row">
-        <GuideButton />
-      </div>
     </>
   );
 }

@@ -37,7 +37,7 @@ export const RunKillButtons = (props: { environment: Env }) => {
   };
 
   return (
-    <div className="card">
+    <div>
       <button onClick={launchServer}>
         Launch
         {getEnvString(environment)}
