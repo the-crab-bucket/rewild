@@ -10,6 +10,7 @@ services:
     command: "jekyll build -w"
     profiles:
       - prod
+    restart: unless-stopped
   # Host the files of the site on port 8089
   nginx:
     image: nginx:latest
@@ -21,6 +22,7 @@ services:
       - ./jekyll/_site/:/usr/share/nginx/html
     profiles:
       - prod
+    restart: unless-stopped
   # Hook nginx exposed port onto the web
   cloudflared:
     image: cloudflare/cloudflared:latest
