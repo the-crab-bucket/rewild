@@ -35,8 +35,8 @@ I suggest buying your domain name from Cloudflare for simplicity, but I have dom
 1. Select Cloudflared.
 1. Name your tunnel something simple and relevant.
 1. Copy the connector command and get the token.
-1. Save the token to your `.env` file
-    - `echo "CLOUDFLARED_TOKEN=[token]" >> .env`
+1. Save the token to your `.env` file 
+    - `TUNNEL_TOKEN=<token>`
 
 # React + TypeScript + Vite
 
