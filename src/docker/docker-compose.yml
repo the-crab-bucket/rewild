@@ -1,4 +1,5 @@
 services:
+  # Build and hot reload (-w) static Markdown files in the .posts/ directory
   jekyll-prod:
     build:
       context: .
@@ -8,7 +9,8 @@ services:
       - "4000:4000"
     command: "jekyll build -w"
     profiles:
-      - production
+      - prod
+  # Host the files of the site on port 8089
   nginx:
     image: nginx:latest
     depends_on:
@@ -18,7 +20,19 @@ services:
     volumes:
       - ./jekyll/_site/:/usr/share/nginx/html
     profiles:
-      - production
+      - prod
+  # Hook nginx exposed port onto the web
+  cloudflared:
+    image: cloudflare/cloudflared:latest
+    depends_on:
+      - nginx
+    profiles:
+      - prod
+    restart: unless-stopped
+    command: tunnel --no-autoupdate run --token ${TUNNEL_TOKEN}
+    env_file:
+      - .env
+    network_mode: "host" # Ensures it can connect to services on localhost
   jekyll-dev:
     build:
       context: .
