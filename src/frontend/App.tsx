@@ -1,6 +1,6 @@
 import { HashRouter, Route, Routes } from "react-router-dom";
 
-import NavbarLayout from "./components/Navbar/NavbarLayout";
+import NavbarLayout from "./components/navbar/NavbarLayout";
 import AboutContainer from "./components/About/AboutContainer";
 import HomeContainer from "./components/Home/HomeContainer";
 import DocsContainer from "./components/Docs/DocsContainer";
