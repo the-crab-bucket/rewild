@@ -6,21 +6,29 @@ Host a static site from your own computer with no hassle.
 
 # Development
 
-## App
+## Server App
 
-first, install NPM.
+First, install NPM.
 
-then do `npm run dev`. 
+Then do `npm run dev`. 
 
-## Docker
+## Docker Development / Manual Hosting (auto setup WIP)
 
 First, install Docker Desktop at https://docs.docker.com/get-started/get-docker/.
 
 Navigate to the `src/docker` directory. From here, run one of the following commands:
 1.  `docker-compose --profile dev up`.  
 This will run the website locally and automatically reload any changes. you can access it from your browser at `localhost:4000`.
-1.   `docker-compose --profile production up` This will build the static Jekyll app, and mount the Nginx server to the `_site/` directory containing the bundled static files. 
+1.   `docker-compose --profile prod up` This will build the static Jekyll app, and mount the Nginx server to the `_site/` directory containing the bundled static files. 
+I recommend saving these commands to an alias because of their unfortunate verbosity.
 
+### Cloudflare
+To actually publish your site to the public facing web, we use a secure Cloudflare Tunnel.
+The tunnel connects an isolated port on your computer to Cloudflare's network. 
+Of course, to be on the web, you must buy and set up your domain credentials with both Cloudflare and whoever you bought it from. 
+I suggest buying your domain name from Cloudflare for simplicity, but I have domains on Namecheap and GoDaddy as well.
+- [Tunnel Dashboard](https://one.dash.cloudflare.com/ad71e39cf0ae1bd7f311f61bb5f86ceb/networks/tunnels)
+- [Tunnel Docs](https://one.dash.cloudflare.com/ad71e39cf0ae1bd7f311f61bb5f86ceb/networks/tunnels)
 
 
 # React + TypeScript + Vite
