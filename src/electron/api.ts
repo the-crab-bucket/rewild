@@ -54,7 +54,7 @@ ipcMain.handle("kill-dev-server", (_event: IpcMainInvokeEvent) => {
 
 ipcMain.handle("run-prod-server", (_event: IpcMainInvokeEvent) => {
   exec(
-    `docker compose -f src/docker/docker-compose.yml --profile production up --build -d`,
+    `docker compose -f src/docker/docker-compose.yml --profile prod up --build -d`,
     (error) => {
       if (error) {
         console.error("Error starting Docker Compose:", error.message);
@@ -67,7 +67,7 @@ ipcMain.handle("run-prod-server", (_event: IpcMainInvokeEvent) => {
 
 ipcMain.handle("kill-prod-server", (_event: IpcMainInvokeEvent) => {
   exec(
-    `docker compose -f src/docker/docker-compose.yml --profile production down`,
+    `docker compose -f src/docker/docker-compose.yml --profile prod down`,
     (error) => {
       if (error) {
         console.error("Error stopping docker:", error.message);
