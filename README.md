@@ -27,10 +27,13 @@ To actually publish your site to the public facing web, we use a secure Cloudfla
 The tunnel connects an isolated port on your computer to Cloudflare's network. 
 Of course, to be on the web, you must buy and set up your domain credentials with both Cloudflare and whoever you bought it from. 
 I suggest buying your domain name from Cloudflare for simplicity, but I have domains on Namecheap and GoDaddy as well.
-- [Tunnel Dashboard](https://one.dash.cloudflare.com/ad71e39cf0ae1bd7f311f61bb5f86ceb/networks/tunnels)
+- [Cloudflare Dashboard](https://one.dash.cloudflare.com/)
 - [Tunnel Docs](https://one.dash.cloudflare.com/ad71e39cf0ae1bd7f311f61bb5f86ceb/networks/tunnels)
 
-1. Click on the Tunnel Dashboard above.
+1. Click on Cloudflare Dashboard above.
+1. Click on the horizontal menu bars in the top left
+1. Scroll down and click on "Zero Trust"
+1. Again in the menu, click on "Networks" -> "Tunnels"
 1. Click the "Create a tunnel" button.
 1. Select Cloudflared.
 1. Name your tunnel something simple and relevant.
