@@ -28,7 +28,6 @@ The tunnel connects an isolated port on your computer to Cloudflare's network.
 Of course, to be on the web, you must buy and set up your domain credentials with both Cloudflare and whoever you bought it from. 
 I suggest buying your domain name from Cloudflare for simplicity, but I have domains on Namecheap and GoDaddy as well.
 - [Cloudflare Dashboard](https://one.dash.cloudflare.com/)
-- [Tunnel Docs](https://one.dash.cloudflare.com/ad71e39cf0ae1bd7f311f61bb5f86ceb/networks/tunnels)
 
 1. Click on Cloudflare Dashboard above.
 1. Click on the horizontal menu bars in the top left
