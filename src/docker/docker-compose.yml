@@ -7,7 +7,7 @@ services:
       - ./jekyll:/srv/jekyll
     ports:
       - "4000:4000"
-    command: "jekyll build -w"
+    command: "bundle exec jekyll build -w"
     profiles:
       - prod
     restart: unless-stopped
@@ -31,7 +31,7 @@ services:
     profiles:
       - prod
     restart: unless-stopped
-    command: tunnel --no-autoupdate run --token ${TUNNEL_TOKEN}
+    command: "tunnel --no-autoupdate run --token ${TUNNEL_TOKEN} --url 'http://localhost:8089'"
     env_file:
       - .env
     network_mode: "host" # Ensures it can connect to services on localhost
@@ -42,6 +42,6 @@ services:
       - ./jekyll:/srv/jekyll
     ports:
       - "4000:4000"
-    command: jekyll serve --watch --force_polling --host 0.0.0.0
+    command: "bundle exec jekyll serve --watch --force_polling --host 0.0.0.0"
     profiles:
       - dev
