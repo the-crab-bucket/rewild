@@ -18,18 +18,31 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 
-title: Rewild 
-# email: estilurie@gmail.com
-description: >- # this means to ignore newlines until "baseurl:"
-  Building an independent, wild internet, one site at a time. 
-baseurl: "/" # the subpath of your site, e.g. /blog
-url: "https://re-wild.ing" # the base hostname & protocol for your site, e.g. http://example.com
+title: FlintaForum
+description: >-
+  Bulletin for t4t community in New York City. Self-hosted in Ridgewood.
+baseurl: "/"
+url: "https://flinta.forum" # the base hostname & protocol for your site, e.g. http://example.com
 
 # Build settings
 theme: minima
 plugins:
   - jekyll-feed
 
+collections:
+  authors:
+    output: true
+
+defaults:
+  - scope:
+      path: ""
+      type: "authors"
+    values:
+      layout: "author"
+  - scope:
+      path: ""
+    values:
+      layout: "default"
 # Exclude from processing.
 # The following items will not be processed, by default.
 # Any item listed under the `exclude:` key here will be automatically added to

@@ -31,7 +31,7 @@ services:
     profiles:
       - prod
     restart: unless-stopped
-    command: tunnel --no-autoupdate run --token ${TUNNEL_TOKEN}
+    command: tunnel --no-autoupdate run --token ${TUNNEL_TOKEN} --url http://localhost:8089
     env_file:
       - .env
     network_mode: "host" # Ensures it can connect to services on localhost
