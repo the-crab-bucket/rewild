@@ -26,56 +26,46 @@ ipcMain.handle(
   }
 );
 
+const DOCKER_PREFIX = "docker-compose -f src/website/docker-compose.yml ";
+
 ipcMain.handle("run-dev-server", (_event: IpcMainInvokeEvent) => {
-  exec(
-    `docker compose -f src/docker/docker-compose.yml --profile dev up --build -d`,
-    (error) => {
-      if (error) {
-        console.error("Error starting Docker Compose:", error.message);
-      } else {
-        console.log("Jekyll started!");
-      }
+  exec(DOCKER_PREFIX + "--profile dev up --build -d", (error) => {
+    if (error) {
+      console.error("Error starting Docker Compose:", error.message);
+    } else {
+      console.log("Jekyll started!");
     }
-  );
+  });
 });
 
 ipcMain.handle("kill-dev-server", (_event: IpcMainInvokeEvent) => {
-  exec(
-    `docker compose -f src/docker/docker-compose.yml --profile dev down`,
-    (error) => {
-      if (error) {
-        console.error("Error stopping docker:", error.message);
-      } else {
-        console.log("Jekyll stopped!");
-      }
+  exec(DOCKER_PREFIX + "--profile dev down", (error) => {
+    if (error) {
+      console.error("Error stopping docker:", error.message);
+    } else {
+      console.log("Jekyll stopped!");
     }
-  );
+  });
 });
 
 ipcMain.handle("run-prod-server", (_event: IpcMainInvokeEvent) => {
-  exec(
-    `docker compose -f src/docker/docker-compose.yml --profile prod up --build -d`,
-    (error) => {
-      if (error) {
-        console.error("Error starting Docker Compose:", error.message);
-      } else {
-        console.log("Jekyll started!");
-      }
+  exec(DOCKER_PREFIX + "--profile prod up --build -d", (error) => {
+    if (error) {
+      console.error("Error starting Docker Compose:", error.message);
+    } else {
+      console.log("Jekyll started!");
     }
-  );
+  });
 });
 
 ipcMain.handle("kill-prod-server", (_event: IpcMainInvokeEvent) => {
-  exec(
-    `docker compose -f src/docker/docker-compose.yml --profile prod down`,
-    (error) => {
-      if (error) {
-        console.error("Error stopping docker:", error.message);
-      } else {
-        console.log("Jekyll stopped!");
-      }
+  exec(DOCKER_PREFIX + "--profile prod down", (error) => {
+    if (error) {
+      console.error("Error stopping docker:", error.message);
+    } else {
+      console.log("Jekyll stopped!");
     }
-  );
+  });
 });
 
 ipcMain.handle(
