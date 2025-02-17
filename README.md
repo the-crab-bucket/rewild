@@ -39,6 +39,12 @@ I suggest buying your domain name from Cloudflare for simplicity, but I have dom
 8. Copy the connector command and get the token.
 9. Save the token to your `.env` file 
     - `TUNNEL_TOKEN=<token>`
+10. From the tunnels page, copy the "Tunnel ID." It should look like a bunch of numbers and letters. This is distinctly different from the "Connector ID."
+11. Go back to the main dashbaord, click on your site, go to the DNS tab in the side bar and click "Records."
+12. Delete the existing type "A" record
+13. Click "Add Record"
+14. Select CNAME from the "Type" dropdown, put "@" in the "Name" field, and put "your_id_from_earlier.cfargotunnel.com" as the target. (should look something like "497dcba3-ecbf-4587-a2dd-5eb0665e6880.cfargotunnel.com")
+
 
 # React + TypeScript + Vite
 
