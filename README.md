@@ -6,11 +6,11 @@ Host a static site from your own computer with no hassle.
 
 # Development
 
-## Server App
+## Running the Server App
 
-First, install NPM.
-
-Then do `npm run dev`. 
+1. Install NPM using the preferred method for your OS. Make sure to use the latest version of Node (23.8 as of writing).
+1. From the root of the project, run `npm install`.
+1. Then do `npm run dev`. 
 
 ## Docker Development / Manual Hosting (auto setup WIP)
 
