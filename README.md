@@ -30,14 +30,14 @@ I suggest buying your domain name from Cloudflare for simplicity, but I have dom
 - [Cloudflare Dashboard](https://one.dash.cloudflare.com/)
 
 1. Click on Cloudflare Dashboard above.
-1. Click on the horizontal menu bars in the top left
-1. Scroll down and click on "Zero Trust"
-1. Again in the menu, click on "Networks" -> "Tunnels"
-1. Click the "Create a tunnel" button.
-1. Select Cloudflared.
-1. Name your tunnel something simple and relevant.
-1. Copy the connector command and get the token.
-1. Save the token to your `.env` file 
+2. Click on the horizontal menu bars in the top left
+3. Scroll down and click on "Zero Trust"
+4. Again in the menu, click on "Networks" -> "Tunnels"
+5. Click the "Create a tunnel" button.
+6. Select Cloudflared.
+7. Name your tunnel something simple and relevant.
+8. Copy the connector command and get the token.
+9. Save the token to your `.env` file 
     - `TUNNEL_TOKEN=<token>`
 
 # React + TypeScript + Vite
