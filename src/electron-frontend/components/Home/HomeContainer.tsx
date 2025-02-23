@@ -3,7 +3,7 @@ import "../../flex.css";
 
 import { Link } from "react-router-dom";
 
-import { Monitor } from "../docker/Monitor";
+import { DockerMonitor } from "../Monitor/Monitor";
 import { Env } from "../../const";
 import GuideButton from "../GuideButton";
 import { RunKillButtons } from "../RunKillButtons";
@@ -13,7 +13,7 @@ function HomeContainer() {
     <>
       <h1>Rewild Server</h1>
 
-      <Monitor />
+      <DockerMonitor />
       <RunKillButtons environment={Env.Dev} />
       <RunKillButtons environment={Env.Prod} />
 

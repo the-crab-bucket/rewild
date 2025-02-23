@@ -8,7 +8,10 @@ export const backend = {
   killDevServer: () => ipcRenderer.invoke("kill-dev-server"),
   runProdServer: () => ipcRenderer.invoke("run-prod-server"),
   killProdServer: () => ipcRenderer.invoke("kill-prod-server"),
-  heartbeat: async (): Promise<string> => await ipcRenderer.invoke("heartbeat"),
+  dockerHeartbeat: async (): Promise<string> =>
+    await ipcRenderer.invoke("dockerHeartbeat"),
+  batteryHeartbeat: async (): Promise<string> =>
+    await ipcRenderer.invoke("batteryHeartbeat"),
 };
 
 contextBridge.exposeInMainWorld("backend", backend);
