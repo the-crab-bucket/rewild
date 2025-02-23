@@ -12,12 +12,12 @@ Host a static site from your own computer with no hassle.
 
 First, install Docker Desktop at https://docs.docker.com/get-started/get-docker/.
 
-Navigate to the `src/docker` directory. From here, run one of the following commands:
-1.  `docker-compose --profile dev up`.  
-This will run the website locally and automatically reload any changes. you can access it from your browser at `localhost:4000`.
-1.   `docker-compose --profile prod up` This will build the static Jekyll app, and mount the Nginx server to the `_site/` directory containing the bundled static files. 
-I recommend saving these commands to an alias because of their unfortunate verbosity.
-
+We use a Makefile to make common commands easy. 
+- Run local Jekyll build: `make dev-b`
+    - This will run the website locally and automatically reload any changes. you can access it from your browser at `localhost:4000`.
+- Run internet server: `make prod-b`
+    - This will build the static Jekyll app, and mount the Nginx server to the `_site/` directory containing the bundled static files.
+ 
 ### Cloudflare
 Unfortunately, the easiest way to expose your local site to the internet is through a Cloudflare Tunnel.
 Ideally we would not lock into a single vendor, especially a megacorpo, but this is it for now!
