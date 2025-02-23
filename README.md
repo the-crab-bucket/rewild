@@ -29,15 +29,21 @@ I suggest buying your domain name from Cloudflare for simplicity, but I have dom
 - [Cloudflare tunnel docs](https://developers.cloudflare.com/cloudflare-one/connections/connect-networks/get-started/create-remote-tunnel/)
 
 1. Click on Cloudflare Dashboard above.
-1. Click on the horizontal menu bars in the top left
-1. Scroll down and click on "Zero Trust"
-1. Again in the menu, click on "Networks" -> "Tunnels"
-1. Click the "Create a tunnel" button.
-1. Select Cloudflared.
-1. Name your tunnel something simple and relevant.
-1. Copy the connector command and get the token.
-1. Save the token to your `.env` file 
+2. Click on the horizontal menu bars in the top left
+3. Scroll down and click on "Zero Trust"
+4. Again in the menu, click on "Networks" -> "Tunnels"
+5. Click the "Create a tunnel" button.
+6. Select Cloudflared.
+7. Name your tunnel something simple and relevant.
+8. Copy the connector command and get the token.
+9. Save the token to your `.env` file 
     - `TUNNEL_TOKEN=<token>`
+10. From the tunnels page, copy the "Tunnel ID." It should look like a bunch of numbers and letters. This is distinctly different from the "Connector ID."
+11. Go back to the main dashbaord, click on your site, go to the DNS tab in the side bar and click "Records."
+12. Delete the existing type "A" record
+13. Click "Add Record"
+14. Select CNAME from the "Type" dropdown, put "@" in the "Name" field, and put "your_id_from_earlier.cfargotunnel.com" as the target. (should look something like "497dcba3-ecbf-4587-a2dd-5eb0665e6880.cfargotunnel.com")
+
 
 ## Other Helpful Links
 - [Electron tutorial](https://www.electronjs.org/docs/latest/tutorial/tutorial-prerequisites)
