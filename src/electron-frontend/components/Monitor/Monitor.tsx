@@ -1,8 +1,13 @@
 import { useState } from "react";
 
-async function heartbeat(): Promise<[boolean, boolean]> {
-  let childProcessStdout = await backend.heartbeat();
+async function dockerHeartbeat(): Promise<[boolean, boolean]> {
+  let childProcessStdout = await backend.dockerHeartbeat();
   return getContainerHealthFromDockerPSOutput(childProcessStdout);
+}
+
+async function batteryHeartbeat(): Promise<number> {
+  let childProcessStdout = await backend.batteryHeartbeat();
+  return getBatteryLifeFromCommand(childProcessStdout);
 }
 
 function getContainerHealthFromDockerPSOutput(
@@ -13,15 +18,25 @@ function getContainerHealthFromDockerPSOutput(
   return [nginxRunning, jekyllRunning];
 }
 
-export const Monitor = () => {
+function getBatteryLifeFromCommand(stdout: string): number {
+  let percentageIndex = stdout.lastIndexOf('%');
+  let percentage = stdout.substring(percentageIndex-2,percentageIndex).trim();
+  return Number(percentage);
+}
+
+
+export const DockerMonitor = () => {
   let [nginxRunning, setNginxRunning] = useState(false);
   let [jekyllRunning, setJekyllRunning] = useState(false);
   let [initialized, setInitialized] = useState(false);
+  let [battery, setBattery] = useState(50.0);
 
   const onClickHeartbeat = async () => {
-    let [nTmp, jTmp] = await heartbeat();
+    let [nTmp, jTmp] = await dockerHeartbeat();
     setNginxRunning(nTmp);
     setJekyllRunning(jTmp);
+    let bTmp = await batteryHeartbeat();
+    setBattery(bTmp);
   };
 
   // Once
@@ -44,6 +59,7 @@ export const Monitor = () => {
 
   return (
     <>
+      <p>Battery: {battery}%</p>
       <p>Status: {status()}</p>
       <p>Nginx Running: {nginxRunning ? "yes" : "no"}</p>
       <p>Jekyll Running: {jekyllRunning ? "yes" : "no"}</p>

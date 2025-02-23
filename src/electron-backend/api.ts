@@ -69,10 +69,19 @@ ipcMain.handle("kill-prod-server", (_event: IpcMainInvokeEvent) => {
 });
 
 ipcMain.handle(
-  "heartbeat",
+  "dockerHeartbeat",
   async (_event: IpcMainInvokeEvent): Promise<string> => {
-    console.log("Calling heartbeat");
+    console.log("Call docker heartbeat");
     let childProcess = execSync(`docker ps`);
+    return childProcess.toString();
+  }
+);
+
+ipcMain.handle(
+  "batteryHeartbeat",
+  async (_event: IpcMainInvokeEvent): Promise<string> => {
+    console.log("Calling battery heartbeat");
+    let childProcess = execSync(`pmset -g batt`); // THIS COMMAND IS ONLY FOR MAC
     return childProcess.toString();
   }
 );
