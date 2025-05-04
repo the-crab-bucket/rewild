@@ -24,4 +24,4 @@ dist-ssr
 *.sw?
 
 # Cloudflare config
-src/docker/.env
+src/website/.env
